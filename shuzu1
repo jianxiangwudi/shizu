@@ -1,0 +1,53 @@
+#include <stdio.h>
+int add(int x, int y)
+{
+	return x + y;
+}
+int sub(int x, int y)
+{
+	return x - y;
+}
+int mul(int x, int y)
+{
+	return x * y;
+}
+int div(int x, int y)
+{
+	return x / y;
+}
+
+int main()
+{
+	int a = 0;
+	int (*output[4])(int, int) = { add,sub,mul,div };
+	printf("是否进入四则运算模式\n");
+	printf("*****1       是*****\n");
+	printf("*****0       否*****\n");
+
+	scanf("%d", &a);
+	int b = 0;
+	int c = 0;
+	int d = 0;
+
+	while (a)
+	{
+		printf("**************************\n");
+		printf("*1  add**********2  sub***\n");
+		printf("*3  mul**********4  div***\n");
+		printf("**************************\n");
+		printf("请选择\n");
+		scanf("%d", &b);
+		printf("请输入计算的两个值\n");
+		scanf("%d%d", &c, &d);
+		int e = 0;
+
+		e = (output[b - 1])(c, d);
+		printf("%d\n", e);
+		printf("是否继续\n");
+		printf("*****1       是*****\n");
+		printf("*****0       否*****\n");
+		scanf("%d", &a);
+	}
+
+	return 0;
+}
